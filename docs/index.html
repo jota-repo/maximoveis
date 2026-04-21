@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maxwell Medeiros Transações Imobiliárias | Imóveis com Credibilidade</title>
+<meta name="description" content="Maxwell Medeiros Transações Imobiliárias: assessoria completa em compra, venda e locação de imóveis com sofisticação, transparência e atendimento personalizado." />
+<meta name="theme-color" content="#0d0d0f" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#fafaf7; --fg:#1a1a1c; --muted:#6b6b70; --border:#e6e3dc;
+    --card:#ffffff; --primary:#16161a; --primary-fg:#fafaf7;
+    --gold:#c9a14a; --gold-soft:#e7d6a8; --gold-deep:#a3801f;
+    --whatsapp:#25d366;
+    --shadow-elegant:0 20px 60px -20px rgba(20,20,22,.25);
+    --shadow-gold:0 10px 30px -10px rgba(201,161,74,.45);
+    --grad-dark:linear-gradient(135deg,#111114 0%,#26262b 100%);
+    --grad-gold:linear-gradient(135deg,#d6b35c 0%,#a3801f 100%);
+    --transition:all .35s cubic-bezier(.4,0,.2,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;letter-spacing:-.02em;line-height:1.2;font-weight:600}
+  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1.25rem}
+  .gold{color:var(--gold)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:.5rem;font-weight:600;font-size:.95rem;cursor:pointer;border:none;transition:var(--transition)}
+  .btn-gold{background:var(--grad-gold);color:#1a1a1c;box-shadow:var(--shadow-gold)}
+  .btn-gold:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+  .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  .btn-whatsapp{background:var(--whatsapp);color:#fff}
+  .btn-whatsapp:hover{filter:brightness(1.08);transform:translateY(-2px)}
+
+  /* TopBar */
+  .topbar{position:fixed;top:0;left:0;right:0;height:40px;background:#0d0d0f;color:#e9e6df;z-index:60;border-bottom:1px solid rgba(201,161,74,.2)}
+  .topbar .container{height:100%;display:flex;align-items:center;justify-content:space-between;font-size:.78rem}
+  .topbar .info{display:flex;gap:1.25rem;align-items:center}
+  .topbar .info a{display:inline-flex;gap:.4rem;align-items:center;color:#cfc9bd;transition:var(--transition)}
+  .topbar .info a:hover{color:var(--gold)}
+  .topbar .social{display:flex;gap:.6rem}
+  .topbar .social a{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(201,161,74,.35);color:#cfc9bd;transition:var(--transition)}
+  .topbar .social a:hover{background:var(--gold);color:#0d0d0f;border-color:var(--gold)}
+  .topbar .info .hide-sm{display:none}
+  @media(min-width:640px){.topbar .info .hide-sm{display:inline-flex}}
+
+  /* Header */
+  .header{position:fixed;top:40px;left:0;right:0;z-index:50;background:rgba(250,250,247,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border);transition:var(--transition)}
+  .header.scrolled{background:rgba(250,250,247,.97);box-shadow:0 4px 20px -8px rgba(0,0,0,.08)}
+  .header .container{height:72px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:.7rem}
+  .logo-mark{width:42px;height:42px;border-radius:.5rem;background:var(--grad-dark);display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;box-shadow:var(--shadow-gold)}
+  .logo-text{display:flex;flex-direction:column;line-height:1.1}
+  .logo-text strong{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--primary)}
+  .logo-text span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .nav{display:none;gap:1.8rem;align-items:center}
+  .nav a{font-size:.92rem;font-weight:500;color:var(--fg);position:relative;transition:var(--transition)}
+  .nav a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:var(--transition)}
+  .nav a:hover{color:var(--gold)}
+  .nav a:hover::after{width:100%}
+  .header .cta{display:none}
+  @media(min-width:900px){.nav{display:flex}.header .cta{display:inline-flex}}
+  .menu-btn{background:none;border:none;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--fg)}
+  @media(min-width:900px){.menu-btn{display:none}}
+  .mobile-nav{display:none;flex-direction:column;background:#fff;border-top:1px solid var(--border);padding:1rem 1.25rem 1.5rem;gap:.25rem}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:.85rem .25rem;border-bottom:1px solid var(--border);font-weight:500}
+  .mobile-nav .btn{margin-top:.75rem;width:100%}
+
+  /* Hero */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;padding-top:140px;padding-bottom:80px;background:#16161a;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background-image:linear-gradient(135deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.75) 50%,rgba(0,0,0,.5) 100%),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center}
+  .hero .container{position:relative;z-index:2;max-width:900px}
+  .hero .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .9rem;border:1px solid rgba(201,161,74,.4);border-radius:999px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+  .hero h1{font-size:clamp(2.2rem,5.2vw,4.2rem);margin-bottom:1.25rem}
+  .hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+  .hero p{font-size:clamp(1rem,1.4vw,1.15rem);color:#d8d4cc;max-width:640px;margin-bottom:2rem}
+  .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:3rem}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:560px;border-top:1px solid rgba(255,255,255,.12);padding-top:1.5rem}
+  .hero-stats div strong{display:block;font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold)}
+  .hero-stats div span{font-size:.78rem;color:#bdb8ad;text-transform:uppercase;letter-spacing:.1em}
+
+  /* Sections */
+  section{scroll-margin-top:120px}
+  .section{padding:5rem 0}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 3.5rem}
+  .section-head .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.75rem;display:block}
+  .section-head h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:1rem}
+  .section-head p{color:var(--muted)}
+
+  /* Sobre */
+  #sobre{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .about-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+  @media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr;gap:4.5rem}}
+  .about-img{position:relative;border-radius:.75rem;overflow:hidden;box-shadow:var(--shadow-elegant)}
+  .about-img img{width:100%;height:520px;object-fit:cover}
+  .about-img .ribbon{position:absolute;left:1.25rem;bottom:1.25rem;background:var(--grad-gold);color:#1a1a1c;padding:.6rem 1rem;border-radius:.5rem;font-weight:600;font-size:.85rem;box-shadow:var(--shadow-gold)}
+  .about h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:1.25rem}
+  .about .lead{color:var(--muted);margin-bottom:1rem}
+  .about ul{list-style:none;margin-top:1.5rem;display:grid;gap:.85rem}
+  .about ul li{display:flex;gap:.75rem;align-items:flex-start;font-size:.95rem}
+  .about ul li svg{flex-shrink:0;margin-top:3px;color:var(--gold)}
+
+  /* Diferenciais */
+  #diferenciais{background:linear-gradient(180deg,#fafaf7 0%,#f3f0e8 100%)}
+  .diff-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+  @media(min-width:640px){.diff-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.diff-grid{grid-template-columns:repeat(4,1fr)}}
+  .diff-card{background:#fff;border:1px solid var(--border);border-radius:.85rem;padding:2rem 1.5rem;transition:var(--transition);position:relative;overflow:hidden}
+  .diff-card::before{content:'';position:absolute;left:0;top:0;width:100%;height:3px;background:var(--grad-gold);transform:scaleX(0);transform-origin:left;transition:var(--transition)}
+  .diff-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-elegant);border-color:var(--gold-soft)}
+  .diff-card:hover::before{transform:scaleX(1)}
+  .diff-icon{width:54px;height:54px;border-radius:.7rem;background:linear-gradient(135deg,#f6efd9,#e7d6a8);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);margin-bottom:1.25rem}
+  .diff-card h3{font-size:1.15rem;margin-bottom:.5rem;color:var(--primary)}
+  .diff-card p{color:var(--muted);font-size:.92rem}
+
+  /* Serviços */
+  .serv-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+  @media(min-width:768px){.serv-grid{grid-template-columns:repeat(3,1fr)}}
+  .serv-card{background:#fff;border:1px solid var(--border);border-radius:.85rem;overflow:hidden;transition:var(--transition);display:flex;flex-direction:column}
+  .serv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-elegant)}
+  .serv-card .img{height:220px;background-size:cover;background-position:center}
+  .serv-card .body{padding:1.75rem;flex:1;display:flex;flex-direction:column}
+  .serv-card h3{font-size:1.3rem;margin-bottom:.6rem}
+  .serv-card p{color:var(--muted);font-size:.93rem;margin-bottom:1.25rem;flex:1}
+  .serv-card .more{color:var(--gold-deep);font-weight:600;font-size:.88rem;display:inline-flex;align-items:center;gap:.35rem}
+
+  /* CTA */
+  .cta-band{background:var(--grad-dark);color:#fff;padding:4rem 0;position:relative;overflow:hidden}
+  .cta-band::after{content:'';position:absolute;right:-100px;top:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,161,74,.25),transparent 70%)}
+  .cta-band .container{position:relative;display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center}
+  @media(min-width:768px){.cta-band .container{grid-template-columns:2fr 1fr}}
+  .cta-band h2{font-size:clamp(1.6rem,2.8vw,2.2rem);margin-bottom:.6rem}
+  .cta-band p{color:#cfc9bd}
+  .cta-band .actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:flex-start}
+  @media(min-width:768px){.cta-band .actions{justify-content:flex-end}}
+
+  /* Contato */
+  #contato{background:#fff}
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+  @media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr}}
+  .contact-info{display:grid;gap:1rem}
+  .contact-card{display:flex;gap:1rem;padding:1.25rem;border:1px solid var(--border);border-radius:.75rem;transition:var(--transition);background:#fff}
+  .contact-card:hover{border-color:var(--gold-soft);box-shadow:var(--shadow-elegant)}
+  .contact-card .icon{width:46px;height:46px;border-radius:.6rem;background:linear-gradient(135deg,#f6efd9,#e7d6a8);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);flex-shrink:0}
+  .contact-card h4{font-family:'Inter',sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:.25rem;font-weight:600}
+  .contact-card p,.contact-card a{font-size:.95rem;color:var(--fg);font-weight:500}
+  form{background:linear-gradient(180deg,#faf8f1,#f3efe1);border:1px solid var(--border);border-radius:.85rem;padding:1.75rem;display:grid;gap:1rem}
+  form h3{font-size:1.3rem;margin-bottom:.25rem}
+  form label{font-size:.82rem;font-weight:600;color:var(--fg);display:block;margin-bottom:.35rem}
+  form input,form textarea,form select{width:100%;padding:.7rem .85rem;border:1px solid var(--border);border-radius:.5rem;font-family:inherit;font-size:.92rem;background:#fff;transition:var(--transition)}
+  form input:focus,form textarea:focus,form select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,161,74,.15)}
+  form textarea{resize:vertical;min-height:110px}
+  .form-row{display:grid;grid-template-columns:1fr;gap:1rem}
+  @media(min-width:600px){.form-row{grid-template-columns:1fr 1fr}}
+  .form-msg{padding:.75rem 1rem;border-radius:.5rem;font-size:.88rem;display:none}
+  .form-msg.ok{display:block;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+
+  /* Footer */
+  footer{background:#0d0d0f;color:#cfc9bd;padding:3.5rem 0 1.5rem;border-top:3px solid var(--gold)}
+  .foot-grid{display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:2.5rem}
+  @media(min-width:768px){.foot-grid{grid-template-columns:2fr 1fr 1fr}}
+  footer h4{font-family:'Playfair Display',serif;color:#fff;font-size:1.05rem;margin-bottom:1rem}
+  footer p,footer a{font-size:.88rem;color:#9c978c;line-height:1.8}
+  footer a:hover{color:var(--gold)}
+  footer ul{list-style:none}
+  .foot-bottom{border-top:1px solid #2a2a2e;padding-top:1.25rem;text-align:center;font-size:.8rem;color:#7a766d}
+
+  /* WhatsApp float */
+  .wa-float{position:fixed;bottom:1.25rem;right:1.25rem;z-index:80;width:58px;height:58px;border-radius:50%;background:var(--whatsapp);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.55);animation:pulse 2.4s infinite}
+  .wa-float:hover{transform:scale(1.08)}
+  @keyframes pulse{0%,100%{box-shadow:0 12px 30px -8px rgba(37,211,102,.55)}50%{box-shadow:0 12px 40px -4px rgba(37,211,102,.85)}}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- TopBar -->
+<div class="topbar">
+  <div class="container">
+    <div class="info">
+      <a href="tel:+5500000000000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (00) 0000-0000</a>
+      <a href="mailto:contato@maxwellmedeiros.com.br" class="hide-sm"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> contato@maxwellmedeiros.com.br</a>
+    </div>
+    <div class="social">
+      <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://wa.me/5500000000000" aria-label="WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="#inicio" class="logo">
+      <div class="logo-mark">M</div>
+      <div class="logo-text">
+        <strong>Maxwell Medeiros</strong>
+        <span>Transações Imobiliárias</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="btn btn-gold cta">Fale Conosco</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+    <a href="#contato" class="btn btn-gold">Fale Conosco</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <span class="badge">★ Excelência Imobiliária</span>
+      <h1>Realizando o sonho do <em>imóvel ideal</em> com confiança e sofisticação</h1>
+      <p>Mais de uma década assessorando famílias e investidores em compra, venda e locação de imóveis com atendimento personalizado e total transparência.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-gold">Solicitar Atendimento →</a>
+        <a href="#servicos" class="btn btn-outline">Conheça os Serviços</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>+10</strong><span>Anos de Mercado</span></div>
+        <div><strong>+500</strong><span>Famílias Atendidas</span></div>
+        <div><strong>100%</strong><span>Transparência</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="section about">
+    <div class="container about-grid">
+      <div class="about-img reveal">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80" alt="Profissional do mercado imobiliário em escritório elegante" loading="lazy" />
+        <div class="ribbon">CRECI Ativo</div>
+      </div>
+      <div class="reveal">
+        <span class="section-head" style="display:block;text-align:left;margin:0 0 1rem"><span class="eyebrow">Sobre Nós</span></span>
+        <h2>Tradição, ética e resultado em cada negociação</h2>
+        <p class="lead">A <strong>Maxwell Medeiros Transações Imobiliárias</strong> nasceu da paixão por conectar pessoas aos seus melhores espaços. Atuamos com seriedade, conhecimento técnico e um atendimento dedicado em cada etapa do processo.</p>
+        <p class="lead">Nosso compromisso é oferecer segurança jurídica, análise criteriosa e suporte completo, do primeiro contato à entrega das chaves.</p>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Atendimento personalizado e consultivo</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Equipe credenciada e experiente</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Transparência em todas as etapas</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Portfólio diversificado de imóveis</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section id="diferenciais" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Diferenciais</span>
+        <h2>Por que escolher a Maxwell Medeiros</h2>
+        <p>Combinamos experiência de mercado com um padrão de atendimento que respeita o seu tempo e o seu patrimônio.</p>
+      </div>
+      <div class="diff-grid" id="diffGrid"></div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="section" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Serviços</span>
+        <h2>Soluções imobiliárias completas</h2>
+        <p>Compra, venda, locação e consultoria estratégica — sempre alinhadas ao seu objetivo.</p>
+      </div>
+      <div class="serv-grid" id="servGrid"></div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <div class="container">
+      <div>
+        <h2>Pronto para encontrar o imóvel ideal?</h2>
+        <p>Fale agora com nossa equipe e receba uma assessoria sob medida.</p>
+      </div>
+      <div class="actions">
+        <a href="https://wa.me/5500000000000" class="btn btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          WhatsApp
+        </a>
+        <a href="#contato" class="btn btn-gold">Formulário</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contato</span>
+        <h2>Vamos conversar</h2>
+        <p>Preencha o formulário ou utilize um dos canais abaixo. Respondemos em até 24 horas úteis.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal" id="contactInfo"></div>
+        <form id="contactForm" novalidate>
+          <h3>Envie sua mensagem</h3>
+          <div class="form-row">
+            <div>
+              <label for="nome">Nome*</label>
+              <input id="nome" name="nome" type="text" required placeholder="Seu nome completo" />
+            </div>
+            <div>
+              <label for="telefone">Telefone*</label>
+              <input id="telefone" name="telefone" type="tel" required placeholder="(00) 00000-0000" />
+            </div>
+          </div>
+          <div>
+            <label for="email">E-mail*</label>
+            <input id="email" name="email" type="email" required placeholder="seu@email.com" />
+          </div>
+          <div>
+            <label for="interesse">Interesse</label>
+            <select id="interesse" name="interesse">
+              <option value="">Selecione uma opção</option>
+              <option>Comprar imóvel</option>
+              <option>Vender imóvel</option>
+              <option>Locação</option>
+              <option>Avaliação</option>
+              <option>Consultoria</option>
+            </select>
+          </div>
+          <div>
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Conte-nos como podemos ajudar..."></textarea>
+          </div>
+          <div class="form-msg ok" id="formMsg">Obrigado! Sua mensagem foi enviada. Entraremos em contato em breve.</div>
+          <button class="btn btn-gold" type="submit">Enviar Mensagem →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:1rem">
+          <div class="logo-mark">M</div>
+          <div class="logo-text">
+            <strong style="color:#fff">Maxwell Medeiros</strong>
+            <span style="color:#9c978c">Transações Imobiliárias</span>
+          </div>
+        </div>
+        <p>Assessoria imobiliária com tradição, ética e resultado. Conectamos pessoas aos imóveis certos com segurança e sofisticação.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li>(00) 0000-0000</li>
+          <li>contato@maxwellmedeiros.com.br</li>
+          <li>Rua Exemplo, 000 — Centro</li>
+          <li>CRECI 00000</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© <span id="year"></span> Maxwell Medeiros Transações Imobiliárias. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5500000000000" class="wa-float" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+</a>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Header scroll effect
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Diferenciais
+  const diffs = [
+    {t:'Atendimento Premium', d:'Suporte dedicado, do primeiro contato à entrega das chaves.', i:'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'},
+    {t:'Segurança Jurídica', d:'Análise documental criteriosa em todas as transações.', i:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'},
+    {t:'Portfólio Selecionado', d:'Imóveis residenciais, comerciais e de investimento.', i:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'},
+    {t:'Resultados Comprovados', d:'Mais de 500 famílias atendidas com excelência.', i:'<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>'}
+  ];
+  document.getElementById('diffGrid').innerHTML = diffs.map(d => `
+    <div class="diff-card reveal">
+      <div class="diff-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d.i}</svg></div>
+      <h3>${d.t}</h3><p>${d.d}</p>
+    </div>`).join('');
+
+  // Serviços
+  const servs = [
+    {t:'Compra de Imóveis', d:'Encontramos o imóvel ideal para seu perfil e orçamento, com curadoria personalizada.', img:'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80'},
+    {t:'Venda de Imóveis', d:'Estratégia completa de avaliação, divulgação e negociação para a melhor oferta.', img:'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=900&q=80'},
+    {t:'Locação & Consultoria', d:'Locação segura e consultoria estratégica para investidores e proprietários.', img:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80'}
+  ];
+  document.getElementById('servGrid').innerHTML = servs.map(s => `
+    <article class="serv-card reveal">
+      <div class="img" style="background-image:url('${s.img}')" role="img" aria-label="${s.t}"></div>
+      <div class="body"><h3>${s.t}</h3><p>${s.d}</p><a href="#contato" class="more">Saiba mais →</a></div>
+    </article>`).join('');
+
+  // Contato
+  const contacts = [
+    {t:'Telefone', v:'(00) 0000-0000', h:'tel:+5500000000000', i:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>'},
+    {t:'WhatsApp', v:'Atendimento rápido', h:'https://wa.me/5500000000000', i:'<path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4z"/>'},
+    {t:'E-mail', v:'contato@maxwellmedeiros.com.br', h:'mailto:contato@maxwellmedeiros.com.br', i:'<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>'},
+    {t:'Endereço', v:'Rua Exemplo, 000 — Centro', h:'#', i:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'}
+  ];
+  document.getElementById('contactInfo').innerHTML = contacts.map(c => `
+    <a class="contact-card" href="${c.h}">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${c.i}</svg></div>
+      <div><h4>${c.t}</h4><p>${c.v}</p></div>
+    </a>`).join('');
+
+  // Form submit
+  const form = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMsg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    formMsg.style.display = 'block';
+    form.reset();
+    setTimeout(() => formMsg.style.display = 'none', 6000);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
